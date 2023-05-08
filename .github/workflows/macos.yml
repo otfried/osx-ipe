@@ -12,12 +12,18 @@ jobs:
         run: make setup
       - name: Compile libpng
         run: make libpng
+      - name: Compile Freetype
+        run: make freetype
+      - name: Compile pixman
+        run: make pixman
+      - name: Compile Cairo
+        run: make cairo
       - name: Compile lua
         run: echo make lua
       - name: Compile libspiro
         run: echo make spiro
       - name: Compile qhull
-        run: make qhull
+        run: echo make qhull
       - name: Compile GSL
         run: echo make gsl
       - name: View result

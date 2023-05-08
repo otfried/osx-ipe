@@ -11,9 +11,10 @@ all:
 	mv libspiro-* libspiro
 	cd libspiro && ./configure --disable-shared --enable-static \
 		--prefix=$(IPEDEPS) \
-		LS_CFLAGS="$(MAC_OS_MIN)"
-	cd libspiro && make
-	cd libspiro && make install
+		LS_CFLAGS="$(MAC_OS_MIN)" && \
+		make && \
+		make install
+	rm -fr $(IPEDEPS)/share
 
 clean:
 	rm -fr libspiro

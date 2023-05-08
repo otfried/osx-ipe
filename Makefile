@@ -6,14 +6,12 @@ IPEDEPS = osxlibs
 
 subdirs = \
 	libpng \
+	freetype \
+	pixman \
 	qhull \
 	spiro \
 	gsl \
-	lua
-
-subdirs1 = \
-	freetype \
-	pixman \
+	lua \
 	cairo
 
 .PHONY: download setup $(subdirs)
