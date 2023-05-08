@@ -5,13 +5,13 @@
 IPEDEPS = osxlibs
 
 subdirs = \
+	libpng \
 	qhull \
 	spiro \
 	gsl \
 	lua
 
 subdirs1 = \
-	libpng \
 	freetype \
 	pixman \
 	cairo

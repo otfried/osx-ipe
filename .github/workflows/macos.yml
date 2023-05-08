@@ -10,14 +10,22 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup
         run: make setup
+      - name: Compile libpng
+        run: make libpng
       - name: Compile lua
-        run: make lua
+        run: echo make lua
       - name: Compile libspiro
-        run: make spiro
+        run: echo make spiro
       - name: Compile qhull
         run: make qhull
       - name: Compile GSL
-        run: make gsl
+        run: echo make gsl
       - name: View result
         run: ls -R osxlibs
+      - name: Upload result
+        uses: actions/upload-artifact@v3
+        with:
+          name: ipe-osxlibs
+          path: osxlibs
+          retention-days: 2
       - run: 'echo "Status ${{ job.status }}"'
