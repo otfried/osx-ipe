@@ -11,21 +11,21 @@ jobs:
       - name: Setup
         run: make setup
       - name: Compile libpng
-        run: echo make libpng
+        run: make libpng
       - name: Compile Freetype
-        run: echo make freetype
+        run: make freetype
       - name: Compile pixman
-        run: echo make pixman
+        run: make pixman
       - name: Compile Cairo
-        run: echo make cairo
+        run: make cairo
       - name: Compile lua
         run: make lua
       - name: Compile libspiro
-        run: echo make spiro
+        run: make spiro
       - name: Compile qhull
-        run: echo make qhull
+        run: make qhull
       - name: Compile GSL
-        run: echo make gsl
+        run: make gsl
       - name: View result
         run: ls -R osxlibs
       - name: Create archive
