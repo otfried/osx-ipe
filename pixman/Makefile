@@ -10,16 +10,16 @@ all:
 	tar xzvf ../pkg/pixman-*.tar.gz
 	mv pixman-* pixman
 	cd pixman && \
-		export PKG_CONFIG_PATH=$(IPEDEPS)/lib/pkgconfig && \
-		export CFLAGS="-Os $(MAC_OS_MIN)" && \
-		export LDFLAGS="$(MAC_OS_MIN)" && \
+		export PKG_CONFIG_LIBDIR=$(IPEDEPS)/lib/pkgconfig && \
+		export CFLAGS="-Os $(OSXTARGET)" && \
+		export LDFLAGS="$(OSXTARGET)" && \
 		./configure --prefix=$(IPEDEPS) && \
 		make && \
 		make install
 	rm $(IPEDEPS)/lib/libpixman*.a $(IPEDEPS)/lib/libpixman*.la
 	rm -fr $(IPEDEPS)/share
 	cd $(IPEDEPS)/lib && \
-		install_name_tool -id @executable_path/../Frameworks/libpixman-1.0.dylib libpixman-1.0.dylib
+		$(NAMETOOL) -id @executable_path/../Frameworks/libpixman-1.0.dylib libpixman-1.0.dylib
 
 clean:
 	rm -fr pixman

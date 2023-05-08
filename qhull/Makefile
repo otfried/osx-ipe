@@ -9,7 +9,7 @@ include ../common.mak
 all:
 	tar xzvf ../pkg/qhull-*.tgz
 	mv qhull-* qhull
-	cd qhull && make CC="clang $(MAC_OS_MIN)"
+	cd qhull && make CC="clang $(OSXTARGET)"
 	cp qhull/lib/libqhullstatic_r.a $(IPEDEPS)/lib/libqhull_r.a
 	mkdir -p $(IPEDEPS)/include/libqhull_r
 	cp qhull/src/libqhull_r/*.h $(IPEDEPS)/include/libqhull_r

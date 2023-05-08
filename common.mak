@@ -6,11 +6,7 @@ IPEDEPS = $(abspath ../osxlibs)
 
 UNAME = $(shell uname)
 ifeq "$(UNAME)" "Darwin"
-
-MAC_OS_MIN = "-mmacosx-version-min=10.10"
-
+NAMETOOL = install_name_tool
 else
-
-MAC_OS_MIN =
-
+NAMETOOL = echo
 endif

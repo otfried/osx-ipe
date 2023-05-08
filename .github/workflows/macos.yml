@@ -4,7 +4,7 @@ jobs:
   Build:
     runs-on: macos-latest
     env:
-      OSXTARGET: -mmacosx-version-min=12.00 -target arm64-apple-macos12
+      OSXTARGET: -mmacosx-version-min=10.10 -target x86_64-apple-macos10.10
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
@@ -15,9 +15,9 @@ jobs:
       - name: Compile Freetype
         run: make freetype
       - name: Compile pixman
-        run: make pixman
+        run: echo make pixman
       - name: Compile Cairo
-        run: make cairo
+        run: echo make cairo
       - name: Compile lua
         run: echo make lua
       - name: Compile libspiro

@@ -19,8 +19,8 @@ SYSCFLAGS=
 SYSLDFLAGS=
 SYSLIBS=
 
-MYCFLAGS=$(MAC_OS_MIN)
-MYLDFLAGS=$(MAC_OS_MIN) -dynamiclib -Wl,-dylib_install_name,@executable_path/../Frameworks/liblua54.dylib
+MYCFLAGS=$(OSXTARGET)
+MYLDFLAGS=$(OSXTARGET) -dynamiclib -Wl,-dylib_install_name,@executable_path/../Frameworks/liblua54.dylib
 MYLIBS=
 MYOBJS=
 

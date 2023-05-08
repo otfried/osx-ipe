@@ -10,16 +10,16 @@ all:
 	tar xzvf ../pkg/freetype-*.tar.gz
 	mv freetype-* freetype
 	cd freetype && \
-		export PKG_CONFIG_PATH=$(IPEDEPS)/lib/pkgconfig && \
-		export CFLAGS="-Os $(MAC_OS_MIN)" && \
-		export LDFLAGS="$(MAC_OS_MIN)" && \
+		export PKG_CONFIG_LIBDIR=$(IPEDEPS)/lib/pkgconfig && \
+		export CFLAGS="-Os $(OSXTARGET)" && \
+		export LDFLAGS="$(OSXTARGET)" && \
 		./configure --prefix=$(IPEDEPS) --with-png=no && \
 		make && \
 		make install
 	rm $(IPEDEPS)/lib/libfreetype*.a $(IPEDEPS)/lib/libfreetype*.la
 	rm -fr $(IPEDEPS)/share
 	cd $(IPEDEPS)/lib && \
-		install_name_tool -id @executable_path/../Frameworks/libfreetype.6.dylib libfreetype.6.dylib
+		$(NAMETOOL) -id @executable_path/../Frameworks/libfreetype.6.dylib libfreetype.6.dylib
 
 clean:
 	rm -fr freetype

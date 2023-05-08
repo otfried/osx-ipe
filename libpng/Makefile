@@ -10,9 +10,9 @@ all:
 	tar xzvf ../pkg/libpng-*.tar.gz
 	mv libpng-* libpng
 	cd libpng && \
-		export PKG_CONFIG_PATH=$(IPEDEPS)/lib/pkgconfig && \
-		export CFLAGS="-Os $(MAC_OS_MIN)" && \
-		export LDFLAGS="$(MAC_OS_MIN)" && \
+		export PKG_CONFIG_LIBDIR=$(IPEDEPS)/lib/pkgconfig && \
+		export CFLAGS="-Os $(OSXTARGET)" && \
+		export LDFLAGS="$(OSXTARGET)" && \
 		./configure --prefix=$(IPEDEPS) && \
 		make && \
 		make install
@@ -22,7 +22,7 @@ all:
 	sed -i.bak '/^Requires.private:/d' $(IPEDEPS)/lib/pkgconfig/libpng16.pc
 	rm -fr $(IPEDEPS)/share
 	cd $(IPEDEPS)/lib && \
-		install_name_tool -id @executable_path/../Frameworks/libpng16.16.dylib libpng16.16.dylib
+		$(NAMETOOL) -id @executable_path/../Frameworks/libpng16.16.dylib libpng16.16.dylib
 
 clean:
 	rm -fr libpng
