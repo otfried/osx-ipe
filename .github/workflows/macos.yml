@@ -11,15 +11,15 @@ jobs:
       - name: Setup
         run: make setup
       - name: Compile libpng
-        run: make libpng
+        run: echo make libpng
       - name: Compile Freetype
-        run: make freetype
+        run: echo make freetype
       - name: Compile pixman
         run: echo make pixman
       - name: Compile Cairo
         run: echo make cairo
       - name: Compile lua
-        run: echo make lua
+        run: make lua
       - name: Compile libspiro
         run: echo make spiro
       - name: Compile qhull
@@ -28,10 +28,12 @@ jobs:
         run: echo make gsl
       - name: View result
         run: ls -R osxlibs
+      - name: Create archive
+        run: tar czvf osxlibs-intel.tar.gz osxlibs
       - name: Upload result
         uses: actions/upload-artifact@v3
         with:
-          name: ipe-osxlibs
-          path: osxlibs
+          name: osxlibs-intel
+          path: osxlibs-intel.tar.gz
           retention-days: 2
       - run: 'echo "Status ${{ job.status }}"'
