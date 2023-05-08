@@ -1,0 +1,23 @@
+name: Build dependencies for Ipe on MacOS
+on: workflow_dispatch
+jobs:
+  Build:
+    runs-on: macos-latest
+    env:
+      OSXTARGET: -mmacosx-version-min=12.00 -target arm64-apple-macos12
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Setup
+        run: make setup
+      - name: Compile lua
+        run: make lua
+      - name: Compile libspiro
+        run: make spiro
+      - name: Compile qhull
+        run: make qhull
+      - name: Compile GSL
+        run: make gsl
+      - name: View result
+        run: ls -R osxlibs
+      - run: 'echo "Status ${{ job.status }}"'
