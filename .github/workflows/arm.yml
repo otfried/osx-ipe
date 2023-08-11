@@ -1,0 +1,39 @@
+name: Build dependencies for Ipe for Apple Silicon
+on: workflow_dispatch
+jobs:
+  Build:
+    runs-on: macos-latest
+    env:
+      OSXTARGET: -mmacosx-version-min=11.00 -target arm64-apple-macos11
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Setup
+        run: make setup
+      - name: Compile libpng
+        run: make libpng
+      - name: Compile Freetype
+        run: make freetype
+      - name: Compile pixman
+        run: make pixman
+      - name: Compile Cairo
+        run: make cairo
+      - name: Compile lua
+        run: make lua
+      - name: Compile libspiro
+        run: make spiro
+      - name: Compile qhull
+        run: make qhull
+      - name: Compile GSL
+        run: make gsl
+      - name: View result
+        run: ls -R osxlibs
+      - name: Create archive
+        run: tar czvf osxlibs-arm.tar.gz osxlibs
+      - name: Upload result
+        uses: actions/upload-artifact@v3
+        with:
+          name: osxlibs-arm
+          path: osxlibs-arm.tar.gz
+          retention-days: 2
+      - run: 'echo "Status ${{ job.status }}"'
