@@ -8,8 +8,9 @@ include ../common.mak
 
 all:
 	tar xzvf ../pkg/pixman-*.tar.gz
-	mv pixman-* pixman
+	mv pixman-*[0-9] pixman
 	cd pixman && \
+		patch -i ../pixman-0.42.2.patch -p 1 && \
 		export PKG_CONFIG_LIBDIR=$(IPEDEPS)/lib/pkgconfig && \
 		export CFLAGS="-Os $(OSXTARGET)" && \
 		export LDFLAGS="$(OSXTARGET)" && \
