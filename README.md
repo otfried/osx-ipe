@@ -8,15 +8,19 @@ All libraries are built and appear as the artifact of the workflow.
 
 ## Building for ARM
 
-Connect to a Mac Mini with M1 or M2 processor.
-
-Install homebrew using
+On a MacOS computer with Apple silicon, install homebrew using
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew update
 ```
 
-We actually only need `pkg-config` from homebrew, but it also makes sure all the command line tools are available.
+Add to your path and install `pkg-config` (we actually only need
+`pkg-config` from homebrew, but it also makes sure all the command
+line tools are available):
+```
+export PATH="$PATH:/opt/homebrew/bin"
+brew update
+brew install pkg-config
+```
 
 Clone this repository:
 ```
