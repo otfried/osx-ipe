@@ -23,7 +23,8 @@ all:
 	rm $(IPEDEPS)/bin/cairo-trace
 	rm -fr $(IPEDEPS)/share
 	cd $(IPEDEPS)/lib && \
-		$(NAMETOOL) -id @executable_path/../Frameworks/libcairo.2.dylib libcairo.2.dylib
-
-clean:
+		$(NAMETOOL) -id @executable_path/../Frameworks/libpixman-1.0.dylib libpixman-1.0.dylib && \
+		$(NAMETOOL) -id @executable_path/../Frameworks/libcairo.2.dylib libcairo.2.dylib && \
+		$(NAMETOOL) -change $(IPEDEPS)/lib/libpixman-1.0.dylib \
+			@executable_path/../Frameworks/libpixman-1.0.dylib libcairo.2.dylib
 	rm -fr cairo
