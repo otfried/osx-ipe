@@ -14,8 +14,6 @@ jobs:
         run: make libpng
       - name: Compile Freetype
         run: make freetype
-      - name: Compile pixman
-        run: make pixman
       - name: Compile Cairo
         run: make cairo
       - name: Compile lua
