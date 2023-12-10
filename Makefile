@@ -7,7 +7,6 @@ IPEDEPS = osxlibs
 subdirs = \
 	libpng \
 	freetype \
-	pixman \
 	qhull \
 	spiro \
 	gsl \
