@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
+      - name: Install meson
+        run: brew install meson
       - name: Setup
         run: make setup
       - name: Compile libpng
