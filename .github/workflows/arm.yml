@@ -8,14 +8,14 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
+      - name: Install meson
+        run: brew install meson
       - name: Setup
         run: make setup
       - name: Compile libpng
         run: make libpng
       - name: Compile Freetype
         run: make freetype
-      - name: Compile pixman
-        run: make pixman
       - name: Compile Cairo
         run: make cairo
       - name: Compile lua
