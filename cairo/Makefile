@@ -18,7 +18,6 @@ all:
 			-Dfreetype=enabled -Dpng=enabled \
 			build && \
 		cd build && meson compile && meson install
-	rm $(IPEDEPS)/lib/libcairo*.a $(IPEDEPS)/lib/libcairo*.la
 	rm $(IPEDEPS)/lib/libcairo-script-interpreter.*
 	rm -fr $(IPEDEPS)/lib/cairo
 	rm $(IPEDEPS)/bin/cairo-trace
