@@ -2,7 +2,7 @@
 # Makefile for building the dependencies of Ipe, for Mac OS
 #
 
-IPEDEPS = osxlibs
+IPEDEPS = $(shell pwd)/osxlibs
 
 subdirs = \
 	libpng \
@@ -11,6 +11,7 @@ subdirs = \
 	spiro \
 	gsl \
 	lua \
+	pixman \
 	cairo
 
 .PHONY: download setup $(subdirs)

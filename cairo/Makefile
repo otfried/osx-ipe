@@ -28,3 +28,6 @@ all:
 		$(NAMETOOL) -change $(IPEDEPS)/lib/libpixman-1.0.dylib \
 			@executable_path/../Frameworks/libpixman-1.0.dylib libcairo.2.dylib
 	rm -fr cairo
+
+clean:
+	rm -fr cairo

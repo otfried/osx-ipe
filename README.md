@@ -36,12 +36,17 @@ Then compile all libraries one by one:
 make setup
 make libpng
 make freetype
+make pixman
 make cairo
 make lua
 make spiro
 make qhull
 make gsl
 ```
+
+(`make pixman` is not needed on Intel hardware, as `cairo` will build
+it automatically. On ARM we need to patch the pixman sources, so this
+doesn't work.)
 
 Archive the libraries and store them safely.
 ```
