@@ -2,10 +2,11 @@
 # Download everything
 #
 
+PIXMAN_VERSION="0.42.2"
 CAIRO_VERSION="1.18.0"
-FREETYPE_VERSION="2.13.0"
-PNG_VERSION="1.6.39"
-LUA_VERSION="5.4.4"
+FREETYPE_VERSION="2.13.2"
+PNG_VERSION="1.6.43"
+LUA_VERSION="5.4.6"
 GSL_VERSION="2.7.1"
 SPIRO_VERSION="20221101"
 QHULL_VERSION="2020-src-8.0.2"
@@ -16,6 +17,7 @@ libpngbase="https://download.sourceforge.net/libpng"
 libpng="libpng-$(PNG_VERSION).tar.gz"
 cairobase="https://www.cairographics.org/releases"
 cairosrc="cairo-$(CAIRO_VERSION).tar.xz"
+pixmansrc="pixman-$(PIXMAN_VERSION).tar.gz"
 luabase="http://www.lua.org/ftp"
 lua="lua-$(LUA_VERSION).tar.gz"
 gslbase="http://gnu.askapache.com/gsl"
@@ -29,6 +31,7 @@ download:
 	wget -N $(freetypebase)/$(freetype)
 	wget -N $(libpngbase)/$(libpng)
 	wget -N $(cairobase)/$(cairosrc)
+	wget -N $(cairobase)/$(pixmansrc)
 	wget -N $(luabase)/$(lua)
 	wget -N $(gslbase)/$(gsl)
 	wget -N $(spirobase)/$(spiro)
