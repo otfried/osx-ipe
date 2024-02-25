@@ -1,4 +1,4 @@
-name: Build dependencies for Ipe on MacOS
+name: Build dependencies for Ipe on MacOS with Intel processor
 on: workflow_dispatch
 jobs:
   Build:
@@ -7,7 +7,7 @@ jobs:
       OSXTARGET: -mmacosx-version-min=10.10 -target x86_64-apple-macos10.10
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install meson
         run: brew install meson
       - name: Setup
@@ -31,7 +31,7 @@ jobs:
       - name: Create archive
         run: tar czvf osxlibs-intel.tar.gz osxlibs
       - name: Upload result
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: osxlibs-intel
           path: osxlibs-intel.tar.gz

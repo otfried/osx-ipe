@@ -1,4 +1,4 @@
-name: Build dependencies for Ipe for Apple Silicon
+name: Build dependencies for Ipe on MacOS with Apple Silicon
 on: workflow_dispatch
 jobs:
   Build:
@@ -7,7 +7,7 @@ jobs:
       OSXTARGET: -mmacosx-version-min=11.00 -target arm64-apple-macos11
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install meson
         run: brew install meson
       - name: Setup
@@ -16,6 +16,8 @@ jobs:
         run: make libpng
       - name: Compile Freetype
         run: make freetype
+      - name: Compile Pixman
+        run: make pixman
       - name: Compile Cairo
         run: make cairo
       - name: Compile lua
@@ -31,7 +33,7 @@ jobs:
       - name: Create archive
         run: tar czvf osxlibs-arm.tar.gz osxlibs
       - name: Upload result
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: osxlibs-arm
           path: osxlibs-arm.tar.gz
